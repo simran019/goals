@@ -1,8 +1,14 @@
-const GoalList = () => {
+const GoalList = (props: any) => {
+  const goalList = props.goals;
   return (
-    <ul className="flex flex-col gap-2 w-full">
-      <li className="bg-red-950 p-2">Goal 1</li>
-      <li className="bg-red-950 p-2">Goal 2</li>
+    <ul className="flex flex-col gap-2 w-full text-white">
+      {goalList.map((item: any) => {
+        return (
+          <li className="bg-red-950 p-2" key={item?.id}>
+            {item?.goalData}
+          </li>
+        );
+      })}
     </ul>
   );
 };
