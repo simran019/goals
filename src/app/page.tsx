@@ -20,8 +20,12 @@ export default function Home() {
 
   const updateGoalList = (goalInfo: any) => {
     setGoalList((prevState) => {
-      return [goalInfo, ...goalList];
+      return [...goalList, goalInfo];
     });
+  };
+  const selectHandler = (itemId: any) => {
+    const item = goalList.filter((item) => item?.id !== itemId);
+    setGoalList(item);
   };
 
   return (
@@ -29,7 +33,7 @@ export default function Home() {
       <h1 className="text-red-950 font-extrabold text-5xl mb-4">Goals</h1>
       <div className="flex flex-col border-2 w-1/2 border-black p-2 items-center gap-2">
         <AddGoals onSaveHandler={updateGoalList} />
-        <GoalList goals={goalList} />
+        <GoalList goals={goalList} onSelect={selectHandler} />
       </div>
     </div>
   );
