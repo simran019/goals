@@ -5,7 +5,7 @@ const GoalList = (props: any) => {
       {goalList.map((item: any) => {
         return (
           <li
-            className="bg-red-950 p-2"
+            className="bg-red-950 p-2 hover:cursor-pointer"
             key={item?.id}
             onClick={() => props.onSelect(item?.id)}
           >
