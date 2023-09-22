@@ -6,9 +6,10 @@ const AddGoals = (props: any) => {
   const [goal, setGoal] = useState("");
 
   const submitHandler = () => {
+    const newGoal = goal.charAt(0).toUpperCase() +goal.slice(1)
     const goalInfo = {
       id: Math.random(),
-      goalData: goal,
+      goalData: newGoal,
     };
     props.onSaveHandler(goalInfo);
   };
